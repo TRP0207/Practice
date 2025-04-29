@@ -1,3 +1,5 @@
+package org.example;
+
 import java.security.KeyStore;
 import java.util.*;
 import java.util.stream.Collectors;
