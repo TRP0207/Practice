@@ -1,10 +1,6 @@
 package org.example;
 
-import java.security.KeyStore;
 import java.util.*;
-import java.util.stream.Collectors;
-import java.util.stream.IntStream;
-import java.util.stream.Stream;
 
 // Me45hu8l
 public class Test {
@@ -15,9 +11,9 @@ public class Test {
         /*String input = "Me45hu8l63Th4a0k5ar1";
         separateNumbersAndCharacters(input);*/
 
-        String input = "M2eh23ul";
+        /*String input = "M2eh23ul";
         String output = "MMehhhul";
-        stringManipulation(input);
+        stringManipulation(input);*/
 
 //        int[] arr = {7,6,4,3,1};
 //        int[] arr = {7, 1, 5, 3, 6, 4};
@@ -64,6 +60,40 @@ public class Test {
 
 //        System.out.println(checkTwoStringAreRotationOfEachOther());
 
+//        aabcccccaaa → a2b1c5a3
+//        String input = "aabcccccaaa";
+//        System.out.println(compressString(input));
+//        System.out.println(checkIfStringHasAllUniqueChar());
+
+//        input = 21543
+//        output = 34512
+        reverseArrayTwoTimes();
+    }
+
+    private static String compressString(String str) {
+        if (str == null || str.isEmpty()) return str;
+
+        // Convert the input string to a char array for direct manipulation
+        char[] chars = str.toCharArray();
+        int n = chars.length;
+        StringBuilder compressed = new StringBuilder();
+
+        // Traverse the string and compress it
+        int count = 1;
+        for (int i = 1; i < n; i++) {
+            if (chars[i] == chars[i - 1]) {
+                count++;
+            } else {
+                compressed.append(chars[i - 1]).append(count);
+                count = 1;
+            }
+        }
+
+        // Append the last character and count
+        compressed.append(chars[n - 1]).append(count);
+
+        // If the compressed string is longer than the original, return the original
+        return compressed.length() < n ? compressed.toString() : str;
     }
 
     static int findMaxConsecutiveOnes(int[] nums) {
@@ -413,109 +443,89 @@ public class Test {
         return true;
     }
 
-    static void mostFrequencyInString(){
+    static void mostFrequencyInString() {
         String str = "Hello";
         char[] strArr = str.toCharArray();
         Map<Character, Integer> map = new HashMap<>();
-        for(char c:strArr){
-            if(str.contains(String.valueOf(c))){
-                map.put(c, map.getOrDefault(c, 0)+1);
+        for (char c : strArr) {
+            if (str.contains(String.valueOf(c))) {
+                map.put(c, map.getOrDefault(c, 0) + 1);
             }
         }
         int max = 0;
         Map<Character, Integer> resultMap = new HashMap<>();
-        for (Map.Entry<Character, Integer> entry: map.entrySet()){
+        for (Map.Entry<Character, Integer> entry : map.entrySet()) {
             System.out.println(entry);
-            if(entry.getValue()>max){
-                max=entry.getValue();
+            if (entry.getValue() > max) {
+                max = entry.getValue();
                 resultMap.replace(entry.getKey(), entry.getValue());
             }
         }
     }
 
-    static void streamExamples(){
+    static void streamExamples() {
         List<String> list = Arrays.asList("Alice", "Bob", "Annie", "Alex", "Charlie", "Anil", "Nayana");
-        List<String> result = list.stream().map(x->x.toLowerCase())
-                .filter(x->x.contains(String.valueOf('n'))).toList();
-        for(String s:result){
+        List<String> result = list.stream().map(x -> x.toLowerCase())
+                .filter(x -> x.contains(String.valueOf('n'))).toList();
+        for (String s : result) {
             System.out.println(s);
         }
 
     }
 
-    static boolean checkTwoStringAreRotationOfEachOther(){
+    static boolean checkTwoStringAreRotationOfEachOther() {
         String str1 = "abcdc";
         String str2 = "dcabc";
 
-        String result = str1+str2;
-        if(str1.length()!=str2.length())
+        String result = str1 + str2;
+        if (str1.length() != str2.length())
             return false;
         if (result.contains(str2))
             return true;
         return false;
     }
 
+    static boolean checkIfStringHasAllUniqueChar() {
+        String str = "abcdefghijk lm nop".toLowerCase().replace(" ", "");
+        char[] strArr = str.toCharArray();
+        Map<Character, Integer> map = new HashMap<>();
+        for (char c : strArr) {
+            if (str.contains(String.valueOf(c))) {
+                map.put(c, map.getOrDefault(c, 0) + 1);
+            }
+        }
+        for (Map.Entry<Character, Integer> entry : map.entrySet()) {
+            if (entry.getValue() > 1)
+                return false;
+        }
+        return true;
+    }
+
+    static void reverseArrayTwoTimes() {
+        int[] arr = {1, 2, 3, 4, 5};
+        int size = arr.length;
+
+        reverArr(0, 1, arr);
+        reverArr(2, size - 1, arr);
+        reverArr(0, size - 1, arr);
+        System.out.println(Arrays.toString(arr));
+    }
+
+    static int[] reverArr(int start, int end, int[] arr) {
+
+        while (start < end) {
+            int temp = arr[start];
+            arr[start] = arr[end];
+            arr[end] = temp;
+
+            start++;
+            end--;
+        }
+        return arr;
+    }
+
+
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
