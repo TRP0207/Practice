@@ -1,20 +1,21 @@
 package org.example;
 
+import java.lang.reflect.Array;
 import java.util.*;
 
 // Me45hu8l
 public class Test {
     public static void main(String[] args) {
-        /*int[] nums = {1, 1, 1, 1, 1, 0, 1, 1, 1, 0, 0, 1, 1, 1, 1, 0};
-        System.out.println(findMaxConsecutiveOnes(nums));*/
-
-        /*String input = "Me45hu8l63Th4a0k5ar1";
-        separateNumbersAndCharacters(input);*/
-
-        /*String input = "M2eh23ul";
-        String output = "MMehhhul";
-        stringManipulation(input);*/
-
+//        int[] nums = {1, 1, 1, 1, 1, 0, 1, 1, 1, 0, 0, 1, 1, 1, 1, 1, 1, 0};
+//        System.out.println(findMaxConsecutiveOnes(nums));
+//
+//        String input = "Me45hu8l63Th4a0k5ar1";
+//        separateNumbersAndCharacters(input);
+//
+//        String input = "M2eh23ul";
+//        String output = "MMehhhul";
+//        stringManipulation(input);
+//
 //        int[] arr = {7,6,4,3,1};
 //        int[] arr = {7, 1, 5, 3, 6, 4};
 //        int[] arr = { 1};
@@ -22,52 +23,75 @@ public class Test {
 //        int[] arr = {12,14,2,1,18};
 //        int[] arr = {1,2};
 //        findMaxProfit(arr);
-
+//
 //        System.out.println(cheNumberIsPrime());
-
+//
 //        findFactorialNumber();
-
+//
 //        System.out.println(checkForPalindrome());
-
+//
 //        fibonacci();
-
+//
 //        largestAndSmallestInArray();
 //        findVowelInString();
 //        swapNumbers();
-        //sortAnArray();
+//        sortAnArray();
 //        removeDuplicates();
 //        secondLargestElement();
 //        reverseString();
-
-        /*List<Integer> numbers = Arrays.asList(1, 2, 3, 4, 5);
-
-        // Sum of all numbers using reduce()
-        int sum = numbers.stream()
-                .reduce(0, (a, b) -> a + b);
-        System.out.println(sum);*/
-
+//
+//        List<Integer> numbers = Arrays.asList(1, 2, 3, 4, 5);
+//
+//        // Sum of all numbers using reduce()
+//        int sum = numbers.stream()
+//                .reduce(0, (a, b) -> a + b);
+//        System.out.println(sum);
+//
 //        findFirstNonRepeatingCHar();
 //        findFirstRepeatingChar();
 //        removeDuplicateCharacter();
-
+//
 //        System.out.println(anagramOrNot());
 //        mostFrequencyInString();
 //        streamExamples();
-
+//
 //        String str = "Hi Hello.";
 //        str=str.replaceAll(" ", "%20");
 //        System.out.println(str);
-
+//
 //        System.out.println(checkTwoStringAreRotationOfEachOther());
-
-//        aabcccccaaa → a2b1c5a3
+//
+//        //aabcccccaaa → a2b1c5a3
 //        String input = "aabcccccaaa";
 //        System.out.println(compressString(input));
 //        System.out.println(checkIfStringHasAllUniqueChar());
-
+//
 //        input = 21543
 //        output = 34512
-        reverseArrayTwoTimes();
+//        reverseArrayTwoTimes();
+//
+//        findAllSubString();
+//        findMaxAndMinInArray();
+//        reverseArray();
+//        System.out.println(sumOfElementsInArray());
+//        copyAllElementOfArray();
+//        removeDuplicateFromSortedArray();
+//        findFirstDuplicateInArray();
+//
+//
+//        Map<String, ?> map =new HashMap<String, ?>();
+//        map.put("abc","bcd" );
+//
+//        Map<String, List<?>> abc= new HashMap<String, List<?>>();
+//
+//        abc.put("a", new ArrayList<Integer>(Arrays.asList(2,4)));
+//
+//
+//        System.out.println(checkIfTwoArrAreEqual());
+//
+//        findFrequencyOfAllElementInArray();
+        rearrangeArray();
+
     }
 
     private static String compressString(String str) {
@@ -96,7 +120,7 @@ public class Test {
         return compressed.length() < n ? compressed.toString() : str;
     }
 
-    static int findMaxConsecutiveOnes(int[] nums) {
+    private static int findMaxConsecutiveOnes(int[] nums) {
         int count = 0;
         int max = 0;
         for (int i : nums) {
@@ -107,11 +131,11 @@ public class Test {
                 count = 0;
             }
         }
-        return max > count ? max : count;
+        return Math.max(max, count);
     }
 
 
-    static void separateNumbersAndCharacters(String input) {
+    private static void separateNumbersAndCharacters(String input) {
         char[] charString = input.toCharArray();
         System.out.println(charString);
         StringBuilder resultString = new StringBuilder();
@@ -127,7 +151,7 @@ public class Test {
         System.out.println("Numbers : " + resultNumbers);
     }
 
-    static void stringManipulation(String input) {
+    private static void stringManipulation(String input) {
         char[] inputArr = input.toCharArray();
         StringBuilder result = new StringBuilder();
         for (int i = 0; i < inputArr.length; i++) {
@@ -202,7 +226,7 @@ public class Test {
         return maxProfit;
     }
 
-    static boolean cheNumberIsPrime() {
+    private static boolean cheNumberIsPrime() {
         int x = 1312;
         for (int i = 2; i < x; i++) {
             if (x % i == 0) {
@@ -214,7 +238,7 @@ public class Test {
         return false;
     }
 
-    static void reverseString() {
+    private static void reverseString() {
         String input = "Hello ! Developer";
         char[] inputArr = input.toCharArray();
         Stack<Character> stack = new Stack<>();
@@ -233,7 +257,7 @@ public class Test {
         System.out.println(stringBuilder.reverse().toString());
     }
 
-    static void findFactorialNumber() {
+    private static void findFactorialNumber() {
         int input = 5;
         long result = 1;
         for (int i = 1; i <= input; i++) {
@@ -242,7 +266,7 @@ public class Test {
         System.out.println(result);
     }
 
-    static boolean checkForPalindrome() {
+    private static boolean checkForPalindrome() {
         String value = "15251".toLowerCase();
         char[] valueArray = value.toCharArray();
         int left = 0;
@@ -259,7 +283,7 @@ public class Test {
         return result;
     }
 
-    static void fibonacci() {
+    private static void fibonacci() {
         int number = 10;
         int sum = 0;
         for (int i = 0; i <= number; i++) {
@@ -270,7 +294,7 @@ public class Test {
         System.out.println(sum);
     }
 
-    static int fibonacciSum(int n) {
+    private static int fibonacciSum(int n) {
         if (n == 0) {
             return 0;
         }
@@ -280,7 +304,7 @@ public class Test {
         return fibonacciSum(n - 1) + fibonacciSum(n - 2);
     }
 
-    static void largestAndSmallestInArray() {
+    private static void largestAndSmallestInArray() {
         int[] arr = {2, 4, 1, 67, 5, 4, 8, 3};
         int min = arr[0];
         int max = arr[0];
@@ -293,7 +317,7 @@ public class Test {
         System.out.println("Max : " + max + " Min : " + min);
     }
 
-    static void findVowelInString() {
+    private static void findVowelInString() {
         String input = "Hello Hi my name is rahul";
         input = input.toLowerCase();
         String[] stringList1 = input.split("");
@@ -307,7 +331,7 @@ public class Test {
         System.out.println(outputList);
     }
 
-    static void swapNumbers() {
+    private static void swapNumbers() {
         int firstNumber = 24;
         int secondNumber = 89;
         System.out.println("First Number : " + firstNumber + " Second Number : " + secondNumber);
@@ -319,7 +343,7 @@ public class Test {
         System.out.println("First Number : " + firstNumber + " Second Number : " + secondNumber);
     }
 
-    static int[] sortAnArray(int[] arr) {
+    private static int[] sortAnArray(int[] arr) {
 //        int[] arr = {45, 7, 15, 4, 96, 8, 32, 4};
 
         for (int i = 0; i < arr.length; i++) {
@@ -331,15 +355,12 @@ public class Test {
                 }
             }
         }
-        for (int i : arr) {
-            System.out.print(i + " ");
-        }
-        System.out.println();
+        System.out.println(Arrays.toString(arr));
 
         return arr;
     }
 
-    static void removeDuplicates() {
+    private static void removeDuplicates() {
         int[] arr = {45, 8, 25, 14, 63, 14, 1, 5, 52}; // 45 8 25 14 63 1 5 52
 //        int[] arr={45,8,25,14,63,45,14,1,5,52}; // 45 8 25 14 63 1 5 52
 
@@ -357,27 +378,7 @@ public class Test {
         System.out.println();
     }
 
-    static void secondLargestElement() {
-        int[] arr = {45, 8, 25, 14, 63, 91, 14, 1, 5, 52};
-//        sortAnArray(arr);
-//        System.out.println(arr[arr.length-2]);
-
-        int max = arr[0];
-        int secondMax = arr[0];
-        for (int i = 0; i < arr.length; i++) {
-            if (arr[i] > max)
-                max = arr[i];
-
-            if (arr[i] < max)
-//                secondMax =arr
-                if (arr[i] < max && arr[i] > secondMax)
-                    secondMax = arr[i];
-        }
-        System.out.println("First : " + max + " Second : " + secondMax);
-
-    }
-
-    static void findFirstNonRepeatingCHar() {
+    private static void findFirstNonRepeatingCHar() {
         String input = "Hello World.";
         input = input.toLowerCase();
         input = input.replace(" ", "");
@@ -394,7 +395,7 @@ public class Test {
         }
     }
 
-    static void findFirstRepeatingChar() {
+    private static void findFirstRepeatingChar() {
         String input = "Hello hi".toLowerCase().replace(" ", "");
         char[] inputArr = input.toCharArray();
         Map<Character, Integer> map = new LinkedHashMap<>();
@@ -410,7 +411,7 @@ public class Test {
         }
     }
 
-    static void removeDuplicateCharacter() {
+    private static void removeDuplicateCharacter() {
         String input = "Hello hi".toLowerCase().replace(" ", "");
         char[] inputArr = input.toCharArray();
         Map<Character, Integer> map = new LinkedHashMap<>();
@@ -425,7 +426,7 @@ public class Test {
         System.out.println(output);
     }
 
-    static boolean anagramOrNot() {
+    private static boolean anagramOrNot() {
         String str1 = "listen";
         String str2 = "silent";
 
@@ -443,7 +444,7 @@ public class Test {
         return true;
     }
 
-    static void mostFrequencyInString() {
+    private static void mostFrequencyInString() {
         String str = "Hello";
         char[] strArr = str.toCharArray();
         Map<Character, Integer> map = new HashMap<>();
@@ -463,7 +464,7 @@ public class Test {
         }
     }
 
-    static void streamExamples() {
+    private static void streamExamples() {
         List<String> list = Arrays.asList("Alice", "Bob", "Annie", "Alex", "Charlie", "Anil", "Nayana");
         List<String> result = list.stream().map(x -> x.toLowerCase())
                 .filter(x -> x.contains(String.valueOf('n'))).toList();
@@ -473,7 +474,7 @@ public class Test {
 
     }
 
-    static boolean checkTwoStringAreRotationOfEachOther() {
+    private static boolean checkTwoStringAreRotationOfEachOther() {
         String str1 = "abcdc";
         String str2 = "dcabc";
 
@@ -485,7 +486,7 @@ public class Test {
         return false;
     }
 
-    static boolean checkIfStringHasAllUniqueChar() {
+    private static boolean checkIfStringHasAllUniqueChar() {
         String str = "abcdefghijk lm nop".toLowerCase().replace(" ", "");
         char[] strArr = str.toCharArray();
         Map<Character, Integer> map = new HashMap<>();
@@ -501,8 +502,33 @@ public class Test {
         return true;
     }
 
-    static void reverseArrayTwoTimes() {
-        int[] arr = {1, 2, 3, 4, 5};
+    private static void findAllSubString() {
+        String str = "Hi Hello how are you";
+        Map<Integer, String> map = new HashMap<>();
+        int count = 1;
+
+        char[] strArr = str.toCharArray();
+        System.out.println("Input String : " + String.valueOf(strArr));
+        StringBuilder resString = new StringBuilder();
+        for (char c : strArr) {
+            if (c != ' ') {
+                resString.append(c);
+            } else {
+                map.put(count, resString.toString());
+                count++;
+                resString = new StringBuilder();
+            }
+        }
+        map.put(count, resString.toString());
+
+        for (int i : map.keySet()) {
+            System.out.println(map.get(i));
+        }
+    }
+
+
+    private static void reverseArrayTwoTimes() {
+        int[] arr = {0, 1, 2, 3, 4, 5, 6};
         int size = arr.length;
 
         reverArr(0, 1, arr);
@@ -511,8 +537,7 @@ public class Test {
         System.out.println(Arrays.toString(arr));
     }
 
-    static int[] reverArr(int start, int end, int[] arr) {
-
+    private static void reverArr(int start, int end, int[] arr) {
         while (start < end) {
             int temp = arr[start];
             arr[start] = arr[end];
@@ -521,9 +546,138 @@ public class Test {
             start++;
             end--;
         }
-        return arr;
     }
 
+    private static void findMaxAndMinInArray() {
+        int[] arr = {4, 23, 7, 55, 90, 2, 7};
+        int max = arr[0];
+        int min = arr[0];
+        for (int i : arr) {
+            if (i > max)
+                max = i;
+            if (i < min)
+                min = i;
+        }
+        System.out.println(max);
+        System.out.println(min);
+    }
+
+    private static void reverseArray() {
+        int[] arr = {2, 4, 7, 4, 9, 5, 0, 1, 6};
+        int start = 0;
+        int end = arr.length - 1;
+        while (start < end) {
+            int tmp = arr[start];
+            arr[start] = arr[end];
+            arr[end] = tmp;
+            start++;
+            end--;
+        }
+        System.out.println(Arrays.toString(arr));
+    }
+
+    private static int sumOfElementsInArray() {
+        int[] arr = {2, 4, 7, 4, 9, 5, 0, 1, 6};
+        int sum = 0;
+        for (int i : arr) {
+            sum = sum + i;
+        }
+        return sum;
+    }
+
+    private static void secondLargestElement() {
+        int[] arr = {45, 8, 25, 14, 63, 91, 14, 1, 5, 52};
+        sortAnArray(arr);
+        System.out.println(arr[arr.length - 2]);
+
+        int max = arr[0];
+        int secondMax = arr[0];
+        for (int i = 0; i < arr.length; i++) {
+            if (arr[i] > max)
+                max = arr[i];
+
+            if (arr[i] < max && arr[i] > secondMax)
+                secondMax = arr[i];
+        }
+        System.out.println("First : " + max + " Second : " + secondMax);
+
+    }
+
+    private static void copyAllElementOfArray() {
+        int[] arr = {45, 8, 25, 14, 63, 91, 14, 1, 5, 52};
+
+        int[] arr2 = new int[arr.length];
+
+        for (int i = 0; i < arr.length; i++) {
+            arr2[i] = arr[i];
+        }
+
+        System.out.println(Arrays.toString(arr));
+        System.out.println(Arrays.toString(arr2));
+    }
+
+    private static void removeDuplicateFromSortedArray() {
+        int[] arr = {45, 8, 25, 14, 63, 91, 14, 1, 5, 52};
+        sortAnArray(arr);
+//        int[] array = Arrays.stream(arr).distinct().toArray();
+//        System.out.println(Arrays.toString(array));
+
+        int[] arr2 = new int[arr.length];
+        for (int i = 0; i < arr.length; i++) {
+            if (i + 1 < arr.length && arr[i] == arr[i + 1]) {
+                continue;
+            } else {
+                arr2[i] = arr[i];
+            }
+        }
+        System.out.println(Arrays.toString(arr2));
+    }
+
+    private static void findFirstDuplicateInArray() {
+        int[] arr = {45, 8, 25, 14, 63, 91, 14, 1, 5, 52, 45};
+        for (int i = 0; i < arr.length; i++) {
+            for (int j = i + 1; j < arr.length; j++) {
+                if (arr[i] == arr[j]) {
+                    System.out.println(arr[i]);
+                }
+            }
+        }
+    }
+
+
+    private static boolean checkIfTwoArrAreEqual() {
+        int[] arr = {45, 8, 25, 14, 63, 91, 14, 1, 5, 52, 45};
+        int[] arr2 = {45, 8, 25, 14, 63, 91, 14, 1, 5, 52, 45};
+
+        if (arr.length != arr2.length)
+            return false;
+
+        for (int i = 0; i < arr.length; i++) {
+            if (arr[i] != arr2[i])
+                return false;
+        }
+        return true;
+    }
+
+    //Find the frequency of each element in an array.
+    private static void findFrequencyOfAllElementInArray() {
+        int[] arr = {45, 8, 25, 14, 63, 91, 14, 1, 8, 25, 45};
+        Map<Integer, Integer> resuMap = new LinkedHashMap<>();
+        for (int j : arr) {
+            resuMap.put(j, resuMap.getOrDefault(j, 0) + 1);
+        }
+        System.out.println(resuMap);
+    }
+
+    //Rearrange the array so that arr[i] = i (or -1 if not present).
+    private static void rearrangeArray() {
+        int[] arr = {3, 4, 2, 5, 0, 1};
+
+        for (int i = 0; i < arr.length; i++) {
+            arr[i] = i;
+        }
+        System.out.println(Arrays.toString(arr));
+    }
 
 }
 
