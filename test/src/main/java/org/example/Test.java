@@ -90,7 +90,8 @@ public class Test {
 //        System.out.println(checkIfTwoArrAreEqual());
 //
 //        findFrequencyOfAllElementInArray();
-        rearrangeArray();
+//        rearrangeArray();
+        findMissingNumberInFirsNNaturalNumber();
 
     }
 
@@ -677,6 +678,17 @@ public class Test {
             arr[i] = i;
         }
         System.out.println(Arrays.toString(arr));
+    }
+
+    private static void findMissingNumberInFirsNNaturalNumber(){
+        List<Integer> list = Arrays.asList(1,2,3,4,5,6,7,8,9,10,12,13);
+        int n = list.get(list.size()-1);
+        List<Integer> result = new ArrayList<>();
+        for (int i=1; i<=n;i++){
+            if(!list.contains(i))
+                result.add(i);
+        }
+        System.out.println(result);
     }
 
 }
