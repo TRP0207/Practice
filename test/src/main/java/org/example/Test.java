@@ -1,6 +1,5 @@
 package org.example;
 
-import java.lang.reflect.Array;
 import java.util.*;
 
 // Me45hu8l
@@ -59,7 +58,7 @@ public class Test {
 //        str=str.replaceAll(" ", "%20");
 //        System.out.println(str);
 //
-//        System.out.println(checkTwoStringAreRotationOfEachOther());
+        System.out.println(checkTwoStringAreRotationOfEachOther());
 //
 //        //aabcccccaaa → a2b1c5a3
 //        String input = "aabcccccaaa";
@@ -91,7 +90,7 @@ public class Test {
 //
 //        findFrequencyOfAllElementInArray();
 //        rearrangeArray();
-        findMissingNumberInFirsNNaturalNumber();
+//        findMissingNumberInFirsNNaturalNumber();
 
     }
 
@@ -476,14 +475,21 @@ public class Test {
     }
 
     private static boolean checkTwoStringAreRotationOfEachOther() {
-        String str1 = "abcdc";
-        String str2 = "dcabc";
+        String str1 = "abcd";
+        String str2 = "dabc";
 
-        String result = str1 + str2;
         if (str1.length() != str2.length())
             return false;
-        if (result.contains(str2))
-            return true;
+        for(int i=0; i<=str2.length();i++){
+            if(str2.equals(str1))
+                return true;
+            // Right rotate s1
+//            char last = str2.charAt(str2.length() - 1);
+//            str2 = last + str2.substring(0, str2.length() - 1);
+
+            char first = str2.charAt(0);
+            str2 =str2.substring(1,str2.length())+first;
+        }
         return false;
     }
 
