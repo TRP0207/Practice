@@ -58,7 +58,7 @@ public class Test {
 //        str=str.replaceAll(" ", "%20");
 //        System.out.println(str);
 //
-        System.out.println(checkTwoStringAreRotationOfEachOther());
+//        System.out.println(checkTwoStringAreRotationOfEachOther());
 //
 //        //aabcccccaaa → a2b1c5a3
 //        String input = "aabcccccaaa";
@@ -77,20 +77,13 @@ public class Test {
 //        removeDuplicateFromSortedArray();
 //        findFirstDuplicateInArray();
 //
-//
-//        Map<String, ?> map =new HashMap<String, ?>();
-//        map.put("abc","bcd" );
-//
-//        Map<String, List<?>> abc= new HashMap<String, List<?>>();
-//
-//        abc.put("a", new ArrayList<Integer>(Arrays.asList(2,4)));
-//
-//
 //        System.out.println(checkIfTwoArrAreEqual());
 //
 //        findFrequencyOfAllElementInArray();
 //        rearrangeArray();
 //        findMissingNumberInFirsNNaturalNumber();
+
+//        findLargestConsecutiveSequence();
 
     }
 
@@ -480,15 +473,15 @@ public class Test {
 
         if (str1.length() != str2.length())
             return false;
-        for(int i=0; i<=str2.length();i++){
-            if(str2.equals(str1))
+        for (int i = 0; i <= str2.length(); i++) {
+            if (str2.equals(str1))
                 return true;
             // Right rotate s1
 //            char last = str2.charAt(str2.length() - 1);
 //            str2 = last + str2.substring(0, str2.length() - 1);
 
             char first = str2.charAt(0);
-            str2 =str2.substring(1,str2.length())+first;
+            str2 = str2.substring(1, str2.length()) + first;
         }
         return false;
     }
@@ -686,17 +679,34 @@ public class Test {
         System.out.println(Arrays.toString(arr));
     }
 
-    private static void findMissingNumberInFirsNNaturalNumber(){
-        List<Integer> list = Arrays.asList(1,2,3,4,5,6,7,8,9,10,12,13);
-        int n = list.get(list.size()-1);
+    private static void findMissingNumberInFirsNNaturalNumber() {
+        List<Integer> list = Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 12, 13);
+        int n = list.get(list.size() - 1);
         List<Integer> result = new ArrayList<>();
-        for (int i=1; i<=n;i++){
-            if(!list.contains(i))
+        for (int i = 1; i <= n; i++) {
+            if (!list.contains(i))
                 result.add(i);
         }
         System.out.println(result);
     }
 
+    private static void findLargestConsecutiveSequence() {
+        int[] arr = {100, 103, 102, 4, 3, 104, 105, 1, 2, 6, 101, 7};
+        Arrays.sort(arr);
+        System.out.println(Arrays.toString(arr));
+        int max = 0;
+        int count = 1;
+        for (int i = 0; i < arr.length - 1; i++) {
+            if (arr[i + 1] == arr[i] + 1) {
+                count++;
+            } else {
+                max = Math.max(count, max);
+                count = 1;
+            }
+            max = Math.max(count, max);
+        }
+        System.out.println(max);
+    }
 }
 
 
